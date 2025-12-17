@@ -14,6 +14,15 @@ import rawPage2 from "@assets/Screenshot_20250806-080758_1765955371510.png";
 import rawPage3 from "@assets/Screenshot_20250806-081600_1765955371512.png";
 import rawPage4 from "@assets/Screenshot_20250806-081901_1765955371514.png";
 
+import polishedPage1 from "@assets/Screenshot_20250806-080525_1765955783318.png";
+import polishedPage2 from "@assets/Screenshot_20250806-080817_1765955783319.png";
+import polishedPage3 from "@assets/Screenshot_20250806-081124_1765955783320.png";
+import polishedPage4 from "@assets/Screenshot_20250806-081153_1765955783320.png";
+import polishedPage5 from "@assets/Screenshot_20250806-081622_1765955783321.png";
+import polishedPage6 from "@assets/Screenshot_20250806-081643_1765955783322.png";
+import polishedPage7 from "@assets/Screenshot_20250806-081919_1765955783323.png";
+import polishedPage8 from "@assets/Screenshot_20250806-081933_1765955783324.png";
+
 const rawPages = [
   rawPage1,
   rawPage2,
@@ -22,10 +31,14 @@ const rawPages = [
 ];
 
 const polishedPages = [
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-081124_1765944738934-CQFu-XKs.png",
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-081153_1765944738935-C-cE8dJi.png",
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-081600_1765944790893-D4KRzdW3.png",
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-081622_1765944831009-3RZFEcGz.png"
+  polishedPage1,
+  polishedPage2,
+  polishedPage3,
+  polishedPage4,
+  polishedPage5,
+  polishedPage6,
+  polishedPage7,
+  polishedPage8
 ];
 
 export function Comparison() {
