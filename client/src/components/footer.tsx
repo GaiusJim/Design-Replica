@@ -1,8 +1,9 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
+    <footer className="bg-primary text-primary-foreground py-12" id="footer">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="lg:col-span-2">
@@ -33,19 +34,24 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="font-bold mb-4 text-lg">Links</h4>
+            <h4 className="font-bold mb-4 text-lg">Legal</h4>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Portfolio</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-of-service" className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
           <p>&copy; {new Date().getFullYear()} Gaiusjimedits. All rights reserved.</p>
-          <p>Designed with Replit</p>
         </div>
       </div>
     </footer>

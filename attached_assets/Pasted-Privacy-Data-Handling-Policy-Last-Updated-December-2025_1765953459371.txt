@@ -1,0 +1,25 @@
+Privacy & Data Handling Policy
+Last Updated: December 2025
+
+1. Introduction
+I am Gaius Jim, an independent academic copyeditor. I respect your privacy and the hard work you put into your research. This policy outlines exactly how I handle your personal information and uploaded documents.
+2. Data Collection
+I collect your name, email address, and manuscript files solely for the purpose of providing my editing services to you. I do not collect unnecessary personal data, and I do not use cookies for third-party tracking.
+3. Confidentiality & Intellectual Property
+Your work is 100% your intellectual property. I do not claim any ownership rights over your documents. I strictly adhere to a non-disclosure policy: I never share, sell, publish, or distribute your content to any third parties or public databases.
+4. Data Retention Policy
+To ensure your long-term privacy, I practice strict data hygiene. All client documents and edited files are permanently deleted from my local and cloud storage 30 days after I deliver the final edit to you.
+5. Security Measures
+I prioritize the security of your research. Your documents are securely collected and stored using Netlify. I utilize Netlify’s encrypted storage to ensure your files remain private and are accessible only to me.
+6. Opt-Out & Third-Party Advertising
+I value your control over your data. You have the right to opt out of data collection and targeted advertising at any time.
+Marketing Communications: You may unsubscribe from our emails by replying "Unsubscribe" or contacting me directly.
+Universal Advertising Opt-Out: I may work with third-party advertising partners (such as Microsoft, Google, or Meta) to show you relevant ads. You can opt out of personalized advertising across all major platforms using these industry-standard tools:
+Network Advertising Initiative (NAI): http://optout.networkadvertising.org
+Digital Advertising Alliance (DAA): http://optout.aboutads.info
+Platform-Specific Opt-Outs:
+Microsoft: https://account.microsoft.com/privacy/ad-settings
+Google: https://adssettings.google.com
+7. Contact Me
+If you have any questions or concerns regarding your data, please contact me directly:
+Email: *gaiusjimedits@gmail.com*

@@ -1,38 +1,44 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useToast } from "@/hooks/use-toast";
-
-const formSchema = z.object({
-  fullName: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  service: z.enum(["structural", "basic", "proof", "advice"]),
-  details: z.string().min(10, "Please provide some project details"),
-  agreement: z.boolean().refine((val) => val === true, "You must agree to the privacy policy")
-});
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { AlertCircle, CheckCircle } from "lucide-react";
 
 export function ContactForm() {
-  const { toast } = useToast();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      service: "structural",
-      agreement: false
-    }
-  });
+  const [submitted, setSubmitted] = useState(false);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Request Received",
-      description: "I'll get back to you shortly with a quote.",
-    });
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const myForm = e.target as HTMLFormElement;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => setSubmitted(true))
+      .catch((error) => alert(error));
+  };
+
+  if (submitted) {
+    return (
+      <section className="py-20 bg-secondary/20" id="contact">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-xl border text-center">
+            <div className="flex justify-center mb-6">
+              <CheckCircle className="w-16 h-16 text-green-500" />
+            </div>
+            <h2 className="text-3xl font-bold text-primary mb-4">Thank you!</h2>
+            <p className="text-lg text-muted-foreground">
+              I have received your document and will reply shortly.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -40,136 +46,71 @@ export function ContactForm() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-xl border">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-primary mb-2">Ready to submit?</h2>
+            <h2 className="text-3xl font-bold text-primary mb-2">Document Upload</h2>
             <p className="text-muted-foreground">
-              Fill out the form below to receive a quote and a free 500-word sample edit.
+              Ready to submit? Fill out the form below.
             </p>
           </div>
 
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="fullName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Dr. John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+          <form
+            id="contactForm"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            encType="multipart/form-data"
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
+            <input type="hidden" name="form-name" value="contact" />
 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john@university.edu" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <div className="space-y-2">
+              <Label htmlFor="name">Full Name</Label>
+              <Input id="name" name="name" required placeholder="Dr. John Doe" />
+            </div>
 
-              <FormField
-                control={form.control}
-                name="service"
-                render={({ field }) => (
-                  <FormItem className="space-y-3">
-                    <FormLabel>Service Required</FormLabel>
-                    <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                        className="flex flex-col space-y-1"
-                      >
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="structural" />
-                          </FormControl>
-                          <FormLabel className="font-normal">
-                            Structural Edit
-                          </FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="basic" />
-                          </FormControl>
-                          <FormLabel className="font-normal">
-                            Basic Copyedit
-                          </FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="proof" />
-                          </FormControl>
-                          <FormLabel className="font-normal">
-                            Proofreading + Formatting
-                          </FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="advice" />
-                          </FormControl>
-                          <FormLabel className="font-normal">
-                            Not sure / Need advice
-                          </FormLabel>
-                        </FormItem>
-                      </RadioGroup>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <div className="space-y-2">
+              <Label htmlFor="email">Email Address</Label>
+              <Input id="email" name="email" type="email" required placeholder="john@university.edu" />
+            </div>
 
-              <FormField
-                control={form.control}
-                name="details"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Project Details</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        placeholder="Word count, deadline, specific concerns..." 
-                        className="min-h-[100px]"
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <div className="space-y-2">
+              <Label htmlFor="service">Service Required</Label>
+              <Select name="service" required>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Structural Edit">Structural Edit</SelectItem>
+                  <SelectItem value="Basic Copyedit">Basic Copyedit</SelectItem>
+                  <SelectItem value="Proofreading + Formatting">Proofreading + Formatting</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
 
-              <FormField
-                control={form.control}
-                name="agreement"
-                render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-                    <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                      />
-                    </FormControl>
-                    <div className="space-y-1 leading-none">
-                      <FormLabel>
-                        I agree to the Privacy Policy and understand that a sample edit will be provided before final agreement.
-                      </FormLabel>
-                    </div>
-                  </FormItem>
-                )}
+            <div className="space-y-2">
+              <Label htmlFor="message">Project Details</Label>
+              <Textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Word count, deadline, specific concerns..."
+                className="min-h-[100px]"
               />
+            </div>
 
-              <Button type="submit" className="w-full size-lg text-lg">
-                Get My Quote
-              </Button>
-            </form>
-          </Form>
+            <div className="space-y-4">
+              <Label htmlFor="document">Upload Document</Label>
+              <Input id="document" name="document" type="file" required className="cursor-pointer" />
+              <div className="flex items-start gap-2 text-sm text-muted-foreground bg-muted p-3 rounded-md">
+                <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" />
+                <p>Max file size 10MB. For larger files, please send to my email: gaiusjimedits@gmail.com.</p>
+              </div>
+            </div>
+
+            <Button type="submit" className="w-full size-lg text-lg">
+              Get My Quote
+            </Button>
+          </form>
         </div>
       </div>
     </section>

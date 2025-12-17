@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Check, Edit3, FileText, Layout } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
   {
@@ -19,7 +18,6 @@ const services = [
     title: "Structural Edit",
     price: "From $0.07/word",
     icon: Layout,
-    popular: true,
     features: [
       "All Basic Features",
       "Flow & Transition Checks",
@@ -43,7 +41,7 @@ const services = [
 
 export function Services() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background" id="services">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Services Offered</h2>
@@ -61,12 +59,7 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className={`h-full flex flex-col ${service.popular ? 'border-primary shadow-lg ring-1 ring-primary/20 relative' : 'hover:border-primary/50 transition-colors'}`}>
-                {service.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
-                    Most Popular
-                  </div>
-                )}
+              <Card className="h-full flex flex-col hover:border-primary/50 transition-colors">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center mb-4 text-primary">
                     <service.icon className="w-6 h-6" />
@@ -86,11 +79,6 @@ export function Services() {
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter>
-                  <Button className={`w-full ${service.popular ? 'bg-primary' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'}`}>
-                    Choose Plan
-                  </Button>
-                </CardFooter>
               </Card>
             </motion.div>
           ))}
