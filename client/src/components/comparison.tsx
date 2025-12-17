@@ -9,11 +9,16 @@ import {
 } from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import rawPage1 from "@assets/Screenshot_20250806-080508_1765955371509.png";
+import rawPage2 from "@assets/Screenshot_20250806-080758_1765955371510.png";
+import rawPage3 from "@assets/Screenshot_20250806-081600_1765955371512.png";
+import rawPage4 from "@assets/Screenshot_20250806-081901_1765955371514.png";
+
 const rawPages = [
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-080508_1765944652635-Cs4pBR25.png",
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-080525_1765944652636-Cxs6DWGc.png",
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-080758_1765944700174-BSoIZ5Mf.png",
-  "https://modern-landing--gaiusjim5.replit.app/assets/Screenshot_20250806-080817_1765944666261-CQpPO386.png"
+  rawPage1,
+  rawPage2,
+  rawPage3,
+  rawPage4
 ];
 
 const polishedPages = [
