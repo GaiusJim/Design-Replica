@@ -34,11 +34,7 @@ const polishedPages = [
   polishedPage1,
   polishedPage2,
   polishedPage3,
-  polishedPage4,
-  polishedPage5,
-  polishedPage6,
-  polishedPage7,
-  polishedPage8
+  polishedPage4
 ];
 
 export function Comparison() {

@@ -1,4 +1,6 @@
 import { Sidebar } from "@/components/sidebar";
+import { Link } from "wouter";
+import { ArrowLeft } from "lucide-react";
 
 export function TermsOfService() {
   return (
@@ -6,6 +8,10 @@ export function TermsOfService() {
       <Sidebar />
       <div className="lg:pl-64 pt-16 lg:pt-0">
         <div className="container mx-auto px-4 py-12 md:px-8 max-w-4xl">
+          <Link href="/" className="inline-flex items-center text-primary hover:underline mb-6">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
           <h1 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">Terms of Service for Gaiusjimedits</h1>
           <p className="text-muted-foreground mb-8">Last Updated: December 2025</p>
 

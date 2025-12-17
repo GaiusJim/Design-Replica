@@ -12,7 +12,7 @@ export function Portfolio() {
   return (
     <section className="py-20 bg-background" id="portfolio">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+        <div className="flex flex-col items-center text-center mb-12 gap-6">
           <div>
             <h2 className="text-3xl font-bold text-primary mb-2">Portfolio Highlights</h2>
             <p className="text-muted-foreground">Recent work and content</p>
