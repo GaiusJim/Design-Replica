@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import heroImage from "@assets/picture_1765954980181.png";
 
 export function Hero() {
   return (
@@ -13,12 +14,9 @@ export function Hero() {
           >
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white shadow-xl mx-auto bg-muted">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=60" 
+                src={heroImage}
                 alt="Gaius Jim"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://placehold.co/400x400/png?text=GJ";
-                }}
               />
             </div>
           </motion.div>

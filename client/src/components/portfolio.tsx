@@ -10,12 +10,12 @@ const portfolioImages = [
 
 export function Portfolio() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background" id="portfolio">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div>
             <h2 className="text-3xl font-bold text-primary mb-2">Portfolio Highlights</h2>
-            <p className="text-muted-foreground">Recent work and client success stories.</p>
+            <p className="text-muted-foreground">Recent work and content</p>
           </div>
           <Button variant="outline" className="gap-2" asChild>
             <a href="https://www.instagram.com/gaiusjimedits?igsh=bXNldGY1YmJkOGdm" target="_blank" rel="noopener noreferrer">

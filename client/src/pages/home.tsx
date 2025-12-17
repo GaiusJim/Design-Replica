@@ -23,8 +23,8 @@ export default function Home() {
         <div id="comparison">
           <Comparison />
         </div>
-        <Portfolio />
         <ContactForm />
+        <Portfolio />
         <Footer />
         <CookieBanner />
       </main>
