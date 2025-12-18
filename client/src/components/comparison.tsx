@@ -18,10 +18,10 @@ import polishedPage1 from "@assets/Screenshot_20250806-080525_1765955783318.png"
 import polishedPage2 from "@assets/Screenshot_20250806-080817_1765955783319.png";
 import polishedPage3 from "@assets/Screenshot_20250806-081124_1765955783320.png";
 import polishedPage4 from "@assets/Screenshot_20250806-081153_1765955783320.png";
-import polishedPage5 from "@assets/Screenshot_20250806-081622_1765955783321.png";
-import polishedPage6 from "@assets/Screenshot_20250806-081643_1765955783322.png";
-import polishedPage7 from "@assets/Screenshot_20250806-081919_1765955783323.png";
-import polishedPage8 from "@assets/Screenshot_20250806-081933_1765955783324.png";
+import polishedPage5 from "@assets/Screenshot_20250806-081622_1766031837460.png";
+import polishedPage6 from "@assets/Screenshot_20250806-081643_1766031837461.png";
+import polishedPage7 from "@assets/Screenshot_20250806-081919_1766031837462.png";
+import polishedPage8 from "@assets/Screenshot_20250806-081933_1766031955062.png";
 
 const rawPages = [
   rawPage1,
@@ -34,7 +34,11 @@ const polishedPages = [
   polishedPage1,
   polishedPage2,
   polishedPage3,
-  polishedPage4
+  polishedPage4,
+  polishedPage5,
+  polishedPage6,
+  polishedPage7,
+  polishedPage8
 ];
 
 export function Comparison() {
