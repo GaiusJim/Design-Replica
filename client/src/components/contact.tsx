@@ -14,13 +14,15 @@ export function ContactForm() {
     const myForm = e.target as HTMLFormElement;
     const formData = new FormData(myForm);
 
-    fetch("/", {
+    fetch("https://formsubmit.co/gaiusjimedits@gmail.com", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
+      body: formData,
     })
       .then(() => setSubmitted(true))
-      .catch((error) => alert(error));
+      .catch((error) => {
+        console.error("Submission error:", error);
+        alert("There was an error submitting your form. Please try again.");
+      });
   };
 
   if (submitted) {
@@ -54,14 +56,10 @@ export function ContactForm() {
 
           <form
             id="contactForm"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            encType="multipart/form-data"
             onSubmit={handleSubmit}
             className="space-y-6 overflow-visible"
+            encType="multipart/form-data"
           >
-            <input type="hidden" name="form-name" value="contact" />
 
             <div className="space-y-2">
               <Label htmlFor="name">Full Name</Label>
