@@ -73,13 +73,13 @@ export function ContactForm() {
               <Input id="email" name="email" type="email" required placeholder="john@university.edu" />
             </div>
 
-            <div className="space-y-2 relative z-10">
+            <div className="space-y-2">
               <Label htmlFor="service">Service Required</Label>
               <Select name="service" required>
-                <SelectTrigger className="relative z-10">
+                <SelectTrigger>
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
-                <SelectContent className="z-50">
+                <SelectContent className="bg-card border border-input shadow-lg">
                   <SelectItem value="Structural Edit">Structural Edit</SelectItem>
                   <SelectItem value="Basic Copyedit">Basic Copyedit</SelectItem>
                   <SelectItem value="Proofreading + Formatting">Proofreading + Formatting</SelectItem>
