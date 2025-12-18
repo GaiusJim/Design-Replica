@@ -65,11 +65,9 @@ export function Sidebar() {
       {/* Desktop Sidebar */}
       <div className="hidden lg:flex fixed top-0 left-0 bottom-0 w-64 flex-col border-r bg-background z-40">
         <div className="p-6 border-b">
-          <Link href="/">
-            <a className="block">
-              <h2 className="font-serif font-bold text-2xl text-primary">Gaiusjimedits</h2>
-              <p className="text-sm text-muted-foreground">Academic Copyeditor</p>
-            </a>
+          <Link href="/" className="block">
+            <h2 className="font-serif font-bold text-2xl text-primary">Gaiusjimedits</h2>
+            <p className="text-sm text-muted-foreground">Academic Copyeditor</p>
           </Link>
         </div>
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
