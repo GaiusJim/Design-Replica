@@ -44,7 +44,7 @@ export function ContactForm() {
   return (
     <section className="py-20 bg-secondary/20" id="contact">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-xl border">
+        <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-xl border overflow-visible">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-primary mb-2">Document Upload</h2>
             <p className="text-muted-foreground">
@@ -59,7 +59,7 @@ export function ContactForm() {
             data-netlify="true"
             encType="multipart/form-data"
             onSubmit={handleSubmit}
-            className="space-y-6"
+            className="space-y-6 overflow-visible"
           >
             <input type="hidden" name="form-name" value="contact" />
 
@@ -73,13 +73,13 @@ export function ContactForm() {
               <Input id="email" name="email" type="email" required placeholder="john@university.edu" />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 relative z-10">
               <Label htmlFor="service">Service Required</Label>
               <Select name="service" required>
-                <SelectTrigger>
+                <SelectTrigger className="relative z-10">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="z-50">
                   <SelectItem value="Structural Edit">Structural Edit</SelectItem>
                   <SelectItem value="Basic Copyedit">Basic Copyedit</SelectItem>
                   <SelectItem value="Proofreading + Formatting">Proofreading + Formatting</SelectItem>
