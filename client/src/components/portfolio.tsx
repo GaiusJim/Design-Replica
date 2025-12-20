@@ -30,7 +30,7 @@ export function Portfolio() {
               <img 
                 src={src} 
                 alt={`Portfolio Item ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = `https://placehold.co/400x600/png?text=Portfolio+${index+1}`;
                 }}

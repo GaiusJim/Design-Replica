@@ -52,12 +52,8 @@ export function WhyChoose() {
             <h2 className="text-3xl font-bold text-primary mb-8">Why Choose My Service?</h2>
             <div className="grid sm:grid-cols-2 gap-8">
               {features.map((feature, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
                   className="flex gap-4"
                 >
                   <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-primary flex-shrink-0">
@@ -67,7 +63,7 @@ export function WhyChoose() {
                     <h3 className="font-bold text-foreground mb-1">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

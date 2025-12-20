@@ -1,12 +1,5 @@
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import rawPage1 from "@assets/Screenshot_20250806-080508_1765955371509.png";
@@ -64,30 +57,22 @@ export function Comparison() {
                 <span className="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-2">Before</span>
                 <p className="text-muted-foreground text-sm">Initial draft with structural inconsistencies.</p>
               </div>
-              <Carousel className="w-full max-w-3xl mx-auto">
-                <CarouselContent>
-                  {rawPages.map((src, index) => (
-                    <CarouselItem key={index}>
-                      <div className="p-1">
-                        <Card className="overflow-hidden shadow-sm">
-                          <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
-                            <img 
-                              src={src} 
-                              alt={`Raw Page ${index + 1}`} 
-                              className="w-full h-full object-contain"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Raw+Draft+Page+${index+1}`;
-                              }}
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-6xl mx-auto">
+                {rawPages.map((src, index) => (
+                  <Card key={index} className="overflow-hidden shadow-sm">
+                    <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
+                      <img 
+                        src={src} 
+                        alt={`Raw Page ${index + 1}`} 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Raw+Draft+Page+${index+1}`;
+                        }}
+                      />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </TabsContent>
 
@@ -97,30 +82,22 @@ export function Comparison() {
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-2">After</span>
                 <p className="text-muted-foreground text-sm">Polished document with improved flow and formatting.</p>
               </div>
-              <Carousel className="w-full max-w-3xl mx-auto">
-                <CarouselContent>
-                  {polishedPages.map((src, index) => (
-                    <CarouselItem key={index}>
-                      <div className="p-1">
-                        <Card className="overflow-hidden shadow-sm">
-                          <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
-                            <img 
-                              src={src} 
-                              alt={`Polished Page ${index + 1}`} 
-                              className="w-full h-full object-contain"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Polished+Page+${index+1}`;
-                              }}
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-6xl mx-auto">
+                {polishedPages.map((src, index) => (
+                  <Card key={index} className="overflow-hidden shadow-sm">
+                    <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
+                      <img 
+                        src={src} 
+                        alt={`Polished Page ${index + 1}`} 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Polished+Page+${index+1}`;
+                        }}
+                      />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </TabsContent>
         </Tabs>

@@ -52,13 +52,7 @@ export function Services() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+            <div key={index}>
               <Card className="h-full flex flex-col hover:border-primary/50 transition-colors">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center mb-4 text-primary">
@@ -80,7 +74,7 @@ export function Services() {
                   </ul>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
