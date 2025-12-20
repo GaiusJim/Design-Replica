@@ -24,13 +24,14 @@ export function Portfolio() {
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="flex flex-wrap gap-4 w-full max-w-6xl mx-auto justify-center">
           {portfolioImages.map((src, index) => (
-            <div key={index} className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-muted">
+            <div key={index} className="group relative flex-shrink-0 overflow-hidden rounded-lg bg-muted" style={{width: 'calc(50% - 8px)'}}>
               <img 
                 src={src} 
                 alt={`Portfolio Item ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                style={{aspectRatio: '3/4', objectFit: 'cover', display: 'block'}}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = `https://placehold.co/400x600/png?text=Portfolio+${index+1}`;
                 }}

@@ -57,14 +57,15 @@ export function Comparison() {
                 <span className="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-2">Before</span>
                 <p className="text-muted-foreground text-sm">Initial draft with structural inconsistencies.</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-6xl mx-auto">
+              <div className="flex flex-wrap gap-4 w-full max-w-6xl mx-auto justify-center">
                 {rawPages.map((src, index) => (
-                  <Card key={index} className="overflow-hidden shadow-sm">
-                    <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
+                  <Card key={index} className="overflow-hidden shadow-sm flex-shrink-0" style={{width: 'calc(50% - 8px)'}}>
+                    <CardContent className="flex items-center justify-center p-0 bg-white" style={{aspectRatio: '3/4'}}>
                       <img 
                         src={src} 
                         alt={`Raw Page ${index + 1}`} 
-                        className="w-full h-full object-contain"
+                        className="w-full h-full"
+                        style={{objectFit: 'contain'}}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Raw+Draft+Page+${index+1}`;
                         }}
@@ -82,14 +83,15 @@ export function Comparison() {
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-2">After</span>
                 <p className="text-muted-foreground text-sm">Polished document with improved flow and formatting.</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-6xl mx-auto">
+              <div className="flex flex-wrap gap-4 w-full max-w-6xl mx-auto justify-center">
                 {polishedPages.map((src, index) => (
-                  <Card key={index} className="overflow-hidden shadow-sm">
-                    <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
+                  <Card key={index} className="overflow-hidden shadow-sm flex-shrink-0" style={{width: 'calc(50% - 8px)'}}>
+                    <CardContent className="flex items-center justify-center p-0 bg-white" style={{aspectRatio: '3/4'}}>
                       <img 
                         src={src} 
                         alt={`Polished Page ${index + 1}`} 
-                        className="w-full h-full object-contain"
+                        className="w-full h-full"
+                        style={{objectFit: 'contain'}}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Polished+Page+${index+1}`;
                         }}

@@ -51,6 +51,7 @@
     width: 100%;
     height: 100%;
     overflow-x: visible;
+    -webkit-text-size-adjust: 100%;
   }
   * {
     @apply border-border;
@@ -60,8 +61,14 @@
     width: 100%;
     min-height: 100vh;
     overflow-x: visible;
+    -webkit-tap-highlight-color: transparent;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 }
