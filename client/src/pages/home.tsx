@@ -10,13 +10,12 @@ import { Sidebar } from "@/components/sidebar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground" style={{ zoom: '85%' }}>
+    <div className="min-h-screen bg-background font-sans text-foreground">
       {/* Main Content */}
       <main 
         className="origin-top overflow-x-hidden"
         style={{
           paddingBottom: '6rem',
-          touchAction: 'manipulation',
         }}
       >
         <Hero />
