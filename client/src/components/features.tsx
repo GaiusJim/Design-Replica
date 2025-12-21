@@ -45,15 +45,19 @@ const noNos = [
 
 export function WhyChoose() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-muted/30">
-      <div className="container mx-auto px-3 sm:px-4 md:px-6">
-        <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
+    <section className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 md:mb-8">Why Choose My Service?</h2>
+            <h2 className="text-3xl font-bold text-primary mb-8">Why Choose My Service?</h2>
             <div className="grid sm:grid-cols-2 gap-8">
               {features.map((feature, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
                   className="flex gap-4"
                 >
                   <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-primary flex-shrink-0">
@@ -63,7 +67,7 @@ export function WhyChoose() {
                     <h3 className="font-bold text-foreground mb-1">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

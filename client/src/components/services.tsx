@@ -41,10 +41,10 @@ const services = [
 
 export function Services() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-background" id="services">
-      <div className="container mx-auto px-3 sm:px-4 md:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 sm:mb-4">Services Offered</h2>
+    <section className="py-20 bg-background" id="services">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Services Offered</h2>
           <p className="text-muted-foreground">
             Comprehensive editing solutions tailored for academic excellence.
           </p>
@@ -52,7 +52,13 @@ export function Services() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index}>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <Card className="h-full flex flex-col hover:border-primary/50 transition-colors">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center mb-4 text-primary">
@@ -74,7 +80,7 @@ export function Services() {
                   </ul>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -10,11 +10,11 @@ const portfolioImages = [
 
 export function Portfolio() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-background" id="portfolio">
-      <div className="container mx-auto px-3 sm:px-4 md:px-6">
-        <div className="flex flex-col items-center text-center mb-10 md:mb-12 gap-4 md:gap-6">
+    <section className="py-20 bg-background" id="portfolio">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col items-center text-center mb-12 gap-6">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-2">Portfolio Highlights</h2>
+            <h2 className="text-3xl font-bold text-primary mb-2">Portfolio Highlights</h2>
             <p className="text-muted-foreground">Recent work and content</p>
           </div>
           <Button variant="outline" className="gap-2" asChild>
@@ -24,14 +24,13 @@ export function Portfolio() {
           </Button>
         </div>
 
-        <div className="flex flex-wrap gap-4 w-full max-w-6xl mx-auto justify-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {portfolioImages.map((src, index) => (
-            <div key={index} className="group relative flex-shrink-0 overflow-hidden rounded-lg bg-muted" style={{width: 'calc(50% - 8px)'}}>
+            <div key={index} className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-muted">
               <img 
                 src={src} 
                 alt={`Portfolio Item ${index + 1}`}
-                className="w-full h-full"
-                style={{aspectRatio: '3/4', objectFit: 'cover', display: 'block'}}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = `https://placehold.co/400x600/png?text=Portfolio+${index+1}`;
                 }}

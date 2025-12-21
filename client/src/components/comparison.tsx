@@ -1,5 +1,12 @@
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import rawPage1 from "@assets/Screenshot_20250806-080508_1765955371509.png";
@@ -45,61 +52,75 @@ export function Comparison() {
 
         <Tabs defaultValue="raw" className="w-full max-w-5xl mx-auto">
           <div className="flex justify-center mb-8">
-            <TabsList className="grid w-full sm:w-[400px] grid-cols-2">
+            <TabsList className="grid w-[400px] grid-cols-2">
               <TabsTrigger value="raw">Raw Draft</TabsTrigger>
               <TabsTrigger value="polished">Polished Edit</TabsTrigger>
             </TabsList>
           </div>
 
           <TabsContent value="raw">
-            <div className="bg-red-50/50 p-4 sm:p-6 md:p-8 rounded-2xl border border-red-100">
+            <div className="bg-red-50/50 p-8 rounded-2xl border border-red-100">
               <div className="mb-4 text-center">
-                <span className="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs sm:text-sm font-medium mb-2">Before</span>
-                <p className="text-muted-foreground text-xs sm:text-sm">Initial draft with structural inconsistencies.</p>
+                <span className="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-2">Before</span>
+                <p className="text-muted-foreground text-sm">Initial draft with structural inconsistencies.</p>
               </div>
-              <div className="flex flex-wrap gap-4 w-full max-w-6xl mx-auto justify-center">
-                {rawPages.map((src, index) => (
-                  <Card key={index} className="overflow-hidden shadow-sm flex-shrink-0" style={{width: 'calc(50% - 8px)'}}>
-                    <CardContent className="flex items-center justify-center p-0 bg-white" style={{aspectRatio: '3/4'}}>
-                      <img 
-                        src={src} 
-                        alt={`Raw Page ${index + 1}`} 
-                        className="w-full h-full"
-                        style={{objectFit: 'contain'}}
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Raw+Draft+Page+${index+1}`;
-                        }}
-                      />
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              <Carousel className="w-full max-w-3xl mx-auto">
+                <CarouselContent>
+                  {rawPages.map((src, index) => (
+                    <CarouselItem key={index}>
+                      <div className="p-1">
+                        <Card className="overflow-hidden shadow-sm">
+                          <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
+                            <img 
+                              src={src} 
+                              alt={`Raw Page ${index + 1}`} 
+                              className="w-full h-full object-contain"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Raw+Draft+Page+${index+1}`;
+                              }}
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
             </div>
           </TabsContent>
 
           <TabsContent value="polished">
-            <div className="bg-green-50/50 p-4 sm:p-6 md:p-8 rounded-2xl border border-green-100">
+            <div className="bg-green-50/50 p-8 rounded-2xl border border-green-100">
               <div className="mb-4 text-center">
-                <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-medium mb-2">After</span>
-                <p className="text-muted-foreground text-xs sm:text-sm">Polished document with improved flow and formatting.</p>
+                <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-2">After</span>
+                <p className="text-muted-foreground text-sm">Polished document with improved flow and formatting.</p>
               </div>
-              <div className="flex flex-wrap gap-4 w-full max-w-6xl mx-auto justify-center">
-                {polishedPages.map((src, index) => (
-                  <Card key={index} className="overflow-hidden shadow-sm flex-shrink-0" style={{width: 'calc(50% - 8px)'}}>
-                    <CardContent className="flex items-center justify-center p-0 bg-white" style={{aspectRatio: '3/4'}}>
-                      <img 
-                        src={src} 
-                        alt={`Polished Page ${index + 1}`} 
-                        className="w-full h-full"
-                        style={{objectFit: 'contain'}}
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Polished+Page+${index+1}`;
-                        }}
-                      />
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              <Carousel className="w-full max-w-3xl mx-auto">
+                <CarouselContent>
+                  {polishedPages.map((src, index) => (
+                    <CarouselItem key={index}>
+                      <div className="p-1">
+                        <Card className="overflow-hidden shadow-sm">
+                          <CardContent className="flex aspect-[3/4] items-center justify-center p-0 bg-white">
+                            <img 
+                              src={src} 
+                              alt={`Polished Page ${index + 1}`} 
+                              className="w-full h-full object-contain"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = `https://placehold.co/600x800/png?text=Polished+Page+${index+1}`;
+                              }}
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
             </div>
           </TabsContent>
         </Tabs>

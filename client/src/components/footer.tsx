@@ -3,9 +3,9 @@ import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground py-8 md:py-12" id="footer">
-      <div className="container mx-auto px-3 sm:px-4 md:px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
+    <footer className="bg-primary text-primary-foreground py-12" id="footer">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-serif font-bold mb-4">Gaiusjimedits</h3>
             <p className="text-primary-foreground/80 max-w-sm">
