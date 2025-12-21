@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Link } from "wouter";
-import { FileText, Upload, Instagram, Mail, ZoomIn, ZoomOut } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { FileText, Upload, Instagram, Mail } from "lucide-react";
 
 const navItems = [
   { label: "Services", href: "/#services", icon: FileText },
@@ -12,20 +10,10 @@ const navItems = [
   { label: "Contact Info", href: "/#footer", icon: Mail },
 ];
 
-interface SidebarProps {
-  zoom: number;
-  onZoomChange: (zoom: number) => void;
-}
-
-export function Sidebar({ zoom, onZoomChange }: SidebarProps) {
-  const handleZoom = (direction: 'in' | 'out') => {
-    const newZoom = direction === 'in' ? zoom + 10 : zoom - 10;
-    onZoomChange(Math.max(70, Math.min(130, newZoom)));
-  };
-
+export function Sidebar() {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-background border-t z-50 px-4 py-3 overflow-x-auto">
-      <div className="flex items-center justify-between gap-4 min-w-max">
+      <div className="flex items-center gap-4 min-w-max">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0 font-serif font-bold text-primary text-sm">
           Gaiusjimedits
@@ -43,31 +31,6 @@ export function Sidebar({ zoom, onZoomChange }: SidebarProps) {
             </a>
           ))}
         </nav>
-
-        {/* Zoom Controls */}
-        <div className="flex items-center gap-2 flex-shrink-0 ml-auto border-l pl-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => handleZoom('out')}
-            className="h-7 w-7"
-            title="Zoom out"
-          >
-            <ZoomOut className="h-3.5 w-3.5" />
-          </Button>
-          <span className="text-xs w-10 text-center text-muted-foreground">
-            {zoom}%
-          </span>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => handleZoom('in')}
-            className="h-7 w-7"
-            title="Zoom in"
-          >
-            <ZoomIn className="h-3.5 w-3.5" />
-          </Button>
-        </div>
       </div>
     </div>
   );

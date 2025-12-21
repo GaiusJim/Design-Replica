@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
 import { WhyChoose } from "@/components/features";
@@ -10,18 +9,15 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { Sidebar } from "@/components/sidebar";
 
 export default function Home() {
-  const [zoom, setZoom] = useState(100);
-
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground">
-      {/* Main Content with Zoom */}
+    <div className="min-h-screen bg-background font-sans text-foreground" style={{ zoom: '85%' }}>
+      {/* Main Content */}
       <main 
-        style={{
-          transform: `scale(${zoom / 100})`,
-          transformOrigin: 'top center',
-          paddingBottom: '6rem',
-        }}
         className="origin-top overflow-x-hidden"
+        style={{
+          paddingBottom: '6rem',
+          touchAction: 'manipulation',
+        }}
       >
         <Hero />
         <div id="services">
@@ -40,7 +36,7 @@ export default function Home() {
       </main>
 
       {/* Horizontal Sidebar at Bottom */}
-      <Sidebar zoom={zoom} onZoomChange={setZoom} />
+      <Sidebar />
     </div>
   );
 }
