@@ -41,10 +41,10 @@ const services = [
 
 export function Services() {
   return (
-    <section className="py-20 bg-background" id="services">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Services Offered</h2>
+    <section className="py-12 sm:py-16 md:py-20 bg-background" id="services">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 sm:mb-4">Services Offered</h2>
           <p className="text-muted-foreground">
             Comprehensive editing solutions tailored for academic excellence.
           </p>

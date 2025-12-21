@@ -9,11 +9,11 @@ export function ContactForm() {
 
   return (
     <section className="py-20 bg-secondary/20" id="contact">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-xl border overflow-visible">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-primary mb-2">Document Upload</h2>
-            <p className="text-muted-foreground">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <div className="max-w-2xl mx-auto bg-card p-4 sm:p-6 md:p-8 lg:p-12 rounded-2xl shadow-xl border overflow-visible">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-primary mb-2">Document Upload</h2>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Ready to submit? Fill out the form below.
             </p>
           </div>

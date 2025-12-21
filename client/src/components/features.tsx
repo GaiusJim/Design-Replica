@@ -45,11 +45,11 @@ const noNos = [
 
 export function WhyChoose() {
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-3 gap-12">
+    <section className="py-12 sm:py-16 md:py-20 bg-muted/30">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-primary mb-8">Why Choose My Service?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 md:mb-8">Why Choose My Service?</h2>
             <div className="grid sm:grid-cols-2 gap-8">
               {features.map((feature, index) => (
                 <div
