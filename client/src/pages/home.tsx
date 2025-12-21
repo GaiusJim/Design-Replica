@@ -10,11 +10,11 @@ import { CookieBanner } from "@/components/cookie-banner";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground flex">
+    <div className="min-h-screen bg-background font-sans text-foreground flex overflow-x-hidden">
       <div className="hidden lg:block">
         <Sidebar />
       </div>
-      <main className="flex-1 flex flex-col w-full">
+      <main className="flex-1 flex flex-col w-full overflow-x-hidden">
         <Hero />
         <div id="services">
           <Services />

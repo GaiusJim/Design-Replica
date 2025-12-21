@@ -45,7 +45,7 @@ export function Comparison() {
 
         <Tabs defaultValue="raw" className="w-full max-w-5xl mx-auto">
           <div className="flex justify-center mb-8">
-            <TabsList className="grid w-[400px] grid-cols-2">
+            <TabsList className="grid w-full sm:w-[400px] grid-cols-2">
               <TabsTrigger value="raw">Raw Draft</TabsTrigger>
               <TabsTrigger value="polished">Polished Edit</TabsTrigger>
             </TabsList>
