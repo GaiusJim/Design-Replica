@@ -1,9 +1,9 @@
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import img1 from "@assets/picture_1765954980181.png";
-import img2 from "@assets/picture_1766164003273.png";
-import img3 from "@assets/Screenshot_20250806-081622_1766031955059.png";
-import img4 from "@assets/Screenshot_20250806-081643_1766031955060.png";
+import img1 from "@assets/Screenshot_20251216-134355_1765889926197_1766404839362.jpg";
+import img2 from "@assets/Screenshot_20251216-135803_1765891184312_1766404839364.jpg";
+import img3 from "@assets/Screenshot_20251216-140332_1765891220534_1766404839364.jpg";
+import img4 from "@assets/Screenshot_20251216-140440_1765891259820_1766404839365.jpg";
 
 const portfolioImages = [img1, img2, img3, img4];
 
