@@ -4,6 +4,13 @@
 
 This is a portfolio and service website for Gaius Jim, an independent academic copyeditor specializing in graduate-level research documents. The site showcases editing services (Basic Copyedit, Structural Edit, Proofreading + Formatting), displays before/after editing samples, and provides a document upload form for potential clients. Built as a full-stack application with React frontend and Express backend.
 
+### Recent Changes
+- Migrated REST Express application to Replit environment.
+- Configured Node.js 20 and dependencies.
+- Set up Drizzle ORM with PostgreSQL.
+- Restored portfolio images from `attached_assets` using Vite aliasing.
+- Verified application functionality and UI layout.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
