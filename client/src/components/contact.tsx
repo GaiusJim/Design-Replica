@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { AlertCircle } from "lucide-react";
 import { useRef } from "react";
 
-const DROPBOX_LINK = "https://www.dropbox.com/scl/fo/g6e8r4ncnhx85qriooiag/AJxjIQeq51uModEzE8w5WWM?rlkey=87loicummdnfjbw13n3b5g36e&st=abz1i78l&dl=0";
+const DROPBOX_LINK = "https://www.dropbox.com/request/AL0zPELJMiQAWQL5HJ6x";
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
 
 export function ContactForm() {
@@ -16,14 +16,12 @@ export function ContactForm() {
     const fileInput = (e.currentTarget.elements.namedItem("document") as HTMLInputElement);
     const files = fileInput?.files;
 
-    // If no file is uploaded or file size exceeds 5MB, redirect to Dropbox
+    // If no file is uploaded or file size exceeds 5MB, also open Dropbox link
     if (!files || files.length === 0 || files[0].size > MAX_FILE_SIZE) {
-      e.preventDefault();
-      window.location.href = DROPBOX_LINK;
-      return;
+      window.open(DROPBOX_LINK, "_blank");
     }
 
-    // Otherwise, allow form submission normally
+    // Form still submits normally to FormSubmit.co
   };
 
   return (

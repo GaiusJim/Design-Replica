@@ -58,7 +58,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Third-Party Services
 - **Form Submission**: FormSubmit.co handles contact form submissions (email to gaiusjimedits@gmail.com)
-- **File Storage**: Dropbox folder link for large documents or missing file uploads
+- **File Storage**: Dropbox request link (https://www.dropbox.com/request/AL0zPELJMiQAWQL5HJ6x) for files >5MB or missing files
 - **Direct Messaging**: WhatsApp integration via wa.me link for phone contact
 - **Fonts**: Google Fonts (Architects Daughter, DM Sans, Fira Code, Geist Mono, Inter, Lora)
 - **External Links**: Instagram portfolio, WhatsApp contact
