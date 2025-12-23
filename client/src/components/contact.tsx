@@ -89,6 +89,8 @@ export function ContactForm() {
               </div>
             </div>
 
+            <input type="hidden" name="_captcha" value="false" />
+
             <Button type="submit" className="w-full size-lg text-lg">
               Get My Quote
             </Button>
