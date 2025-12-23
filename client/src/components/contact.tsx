@@ -4,8 +4,27 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { AlertCircle } from "lucide-react";
+import { useRef } from "react";
+
+const DROPBOX_LINK = "https://www.dropbox.com/scl/fo/g6e8r4ncnhx85qriooiag/AJxjIQeq51uModEzE8w5WWM?rlkey=87loicummdnfjbw13n3b5g36e&st=abz1i78l&dl=0";
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
 
 export function ContactForm() {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const fileInput = (e.currentTarget.elements.namedItem("document") as HTMLInputElement);
+    const files = fileInput?.files;
+
+    // If no file is uploaded or file size exceeds 5MB, redirect to Dropbox
+    if (!files || files.length === 0 || files[0].size > MAX_FILE_SIZE) {
+      e.preventDefault();
+      window.location.href = DROPBOX_LINK;
+      return;
+    }
+
+    // Otherwise, allow form submission normally
+  };
 
   return (
     <section className="py-20 bg-secondary/20" id="contact">
@@ -19,12 +38,13 @@ export function ContactForm() {
           </div>
 
           <form
+            ref={formRef}
             id="contactForm"
             action="https://formsubmit.co/gaiusjimedits@gmail.com"
             method="POST"
-            target="_blank"
             className="space-y-6 overflow-visible"
             encType="multipart/form-data"
+            onSubmit={handleSubmit}
           >
 
             <div className="space-y-2">
@@ -64,10 +84,10 @@ export function ContactForm() {
 
             <div className="space-y-4">
               <Label htmlFor="document">Upload Document</Label>
-              <Input id="document" name="document" type="file" required className="cursor-pointer" />
+              <Input id="document" name="document" type="file" className="cursor-pointer" />
               <div className="flex items-start gap-2 text-sm text-muted-foreground bg-muted p-3 rounded-md">
                 <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" />
-                <p>Max file size 10MB. For larger files, please send to my email: gaiusjimedits@gmail.com.</p>
+                <p className="font-bold">Max file size 5MB. For larger files, you'll be redirected to Dropbox after submitting the form.</p>
               </div>
             </div>
 

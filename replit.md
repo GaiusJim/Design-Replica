@@ -9,6 +9,11 @@ This is a portfolio and service website for Gaius Jim, an independent academic c
 - Configured Node.js 20 and dependencies.
 - Set up Drizzle ORM with PostgreSQL.
 - Restored portfolio images from `attached_assets` using Vite aliasing.
+- Updated portfolio section with Instagram content showcase images.
+- Updated file upload form: changed max file size from 10MB to 5MB with bold text notification.
+- Implemented smart file validation: users without files or files >5MB are redirected to Dropbox upload link.
+- Made phone number clickable with WhatsApp direct message link (wa.me/2349121478352).
+- Removed reCAPTCHA verification from contact form.
 - Verified application functionality and UI layout.
 
 ## User Preferences
@@ -53,6 +58,8 @@ Preferred communication style: Simple, everyday language.
 
 ### Third-Party Services
 - **Form Submission**: FormSubmit.co handles contact form submissions (email to gaiusjimedits@gmail.com)
+- **File Storage**: Dropbox folder link for large documents or missing file uploads
+- **Direct Messaging**: WhatsApp integration via wa.me link for phone contact
 - **Fonts**: Google Fonts (Architects Daughter, DM Sans, Fira Code, Geist Mono, Inter, Lora)
 - **External Links**: Instagram portfolio, WhatsApp contact
 
