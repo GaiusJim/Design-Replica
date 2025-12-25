@@ -100,7 +100,7 @@ export function ContactForm() {
               To understand how your data and information are used, check my <Link href="/privacy-policy" className="font-bold text-foreground hover:underline">privacy policy</Link>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-2">
               <h3 className="font-semibold text-foreground mb-3">What You'll Receive</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>2-page sample edit</li>
