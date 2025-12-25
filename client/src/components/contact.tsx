@@ -95,10 +95,13 @@ export function ContactForm() {
               Get My Quote
             </Button>
 
-            <div className="text-center pt-4 space-y-2 text-sm text-muted-foreground">
-              <p>2-page sample edit</p>
-              <p>A full quote in under 12 hours</p>
-              <p>Work begins immediately after confirmation</p>
+            <div className="pt-6">
+              <h3 className="font-semibold text-foreground mb-3">What You'll Receive</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>2-page sample edit</li>
+                <li>A full quote in under 12 hours</li>
+                <li>Work begins immediately after confirmation</li>
+              </ul>
             </div>
           </form>
         </div>
