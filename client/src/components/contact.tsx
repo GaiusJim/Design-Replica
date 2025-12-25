@@ -99,7 +99,7 @@ export function ContactForm() {
               <h3 className="font-semibold text-foreground mb-3">What You'll Receive</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>2-page sample edit</li>
-                <li>A full quote in under 12 hours</li>
+                <li>A full quote in under 24 hours</li>
                 <li>Work begins immediately after confirmation</li>
               </ul>
             </div>
