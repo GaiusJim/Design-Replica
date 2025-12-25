@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { AlertCircle } from "lucide-react";
 import { useRef } from "react";
+import { Link } from "wouter";
 
 const DROPBOX_LINK = "https://www.dropbox.com/request/AL0zPELJMiQAWQL5HJ6x";
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
@@ -94,6 +95,10 @@ export function ContactForm() {
             <Button type="submit" className="w-full size-lg text-lg">
               Get My Quote
             </Button>
+
+            <div className="pt-4 pb-2 text-xs italic text-muted-foreground">
+              To understand how your data and information are used, check my <Link href="/privacy-policy" className="font-bold text-foreground hover:underline">privacy policy</Link>
+            </div>
 
             <div className="pt-6">
               <h3 className="font-semibold text-foreground mb-3">What You'll Receive</h3>
