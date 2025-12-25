@@ -94,6 +94,12 @@ export function ContactForm() {
             <Button type="submit" className="w-full size-lg text-lg">
               Get My Quote
             </Button>
+
+            <div className="text-center pt-4 space-y-2 text-sm text-muted-foreground">
+              <p>2-page sample edit</p>
+              <p>A full quote in under 12 hours</p>
+              <p>Work begins immediately after confirmation</p>
+            </div>
           </form>
         </div>
       </div>
