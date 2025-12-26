@@ -17,12 +17,17 @@ export function ContactForm() {
     const fileInput = (e.currentTarget.elements.namedItem("document") as HTMLInputElement);
     const files = fileInput?.files;
 
-    // If no file is uploaded or file size exceeds 5MB, also open Dropbox link
-    if (!files || files.length === 0 || files[0].size > MAX_FILE_SIZE) {
+    // If file size exceeds 5MB, clear the file and redirect to Dropbox
+    if (files && files.length > 0 && files[0].size > MAX_FILE_SIZE) {
+      fileInput.value = ""; // Clear the file input so form submits without it
+      window.open(DROPBOX_LINK, "_blank");
+    }
+    // If no file is uploaded, just redirect to Dropbox
+    else if (!files || files.length === 0) {
       window.open(DROPBOX_LINK, "_blank");
     }
 
-    // Form still submits normally to FormSubmit.co
+    // Form submits normally to FormSubmit.co
   };
 
   return (
