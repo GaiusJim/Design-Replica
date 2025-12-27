@@ -3,13 +3,11 @@ deployment:
   targets:
     - name: production
       domain: example.com
-      path: /public_html
+      path: /public_html/gaiusjimedits
       excluded_files:
         - .git
         - .gitignore
-        - node_modules
         - .env
-        - .env.production
         - .env.local
         - .env.*.local
         - npm-debug.log
@@ -18,12 +16,9 @@ deployment:
         - .idea
         - .vscode
         - coverage
-        - dist
+        - package-lock.json
       scripts:
         pre_deploy:
-          - npm ci --production
+          - npm install
         post_deploy:
           - npm run build
-          - npm install -g pm2
-          - pm2 start ecosystem.config.js
-          - pm2 save

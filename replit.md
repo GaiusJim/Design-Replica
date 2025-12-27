@@ -59,16 +59,26 @@ Preferred communication style: Simple, everyday language.
 - **Output**: `dist/` directory with `index.cjs` (server) and `public/` (client assets)
 - **Process Management**: PM2 ecosystem config (`ecosystem.config.js`) for production
 
-### Deployment to Lyte Hosting
+### Deployment to cPanel
 1. **Build**: Run `npm run build` to compile frontend and backend
-2. **Environment**: Copy `.env.production.example` to `.env.production` and update with your values (DATABASE_URL, etc.)
-3. **Process Manager**: Use PM2 with `ecosystem.config.js`:
-   - Install PM2: `npm install -g pm2`
-   - Start app: `pm2 start ecosystem.config.js`
-   - View logs: `pm2 logs gaiusjimedits`
-   - Restart: `pm2 restart gaiusjimedits`
-4. **Reverse Proxy**: Configure nginx to proxy requests to port 5000 (Express server)
-5. **Database**: Ensure PostgreSQL is running and DATABASE_URL is correctly set
+2. **Push to Git**: Commit all changes to your repository
+3. **cPanel Setup**:
+   - Log into cPanel and go to Node.js Manager
+   - Create a new Node.js Application
+   - Set Application Root to: `/home/username/public_html/gaiusjimedits`
+   - Set Application Startup File to: `dist/index.cjs`
+   - Set Node.js Version: 20.x
+4. **Environment Variables** (add in cPanel Node.js Manager):
+   - `NODE_ENV`: production
+   - `PORT`: 3000 (cPanel manages port forwarding)
+   - `DATABASE_URL`: Your PostgreSQL connection string
+5. **Deploy**: The `.cpanel.yml` file will automatically handle:
+   - Installing dependencies (`npm install`)
+   - Building the app (`npm run build`)
+   - Deploying files to the correct location
+6. **Start**: Click "Start App" in cPanel's Node.js Manager
+
+See `public_html_config.md` for detailed step-by-step instructions.
 
 ## External Dependencies
 
