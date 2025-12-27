@@ -1,0 +1,29 @@
+---
+deployment:
+  targets:
+    - name: production
+      domain: example.com
+      path: /public_html
+      excluded_files:
+        - .git
+        - .gitignore
+        - node_modules
+        - .env
+        - .env.production
+        - .env.local
+        - .env.*.local
+        - npm-debug.log
+        - yarn-error.log
+        - .DS_Store
+        - .idea
+        - .vscode
+        - coverage
+        - dist
+      scripts:
+        pre_deploy:
+          - npm ci --production
+        post_deploy:
+          - npm run build
+          - npm install -g pm2
+          - pm2 start ecosystem.config.js
+          - pm2 save
