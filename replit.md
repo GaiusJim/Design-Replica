@@ -14,6 +14,10 @@ This is a portfolio and service website for Gaius Jim, an independent academic c
 - Implemented smart file validation: users without files or files >5MB are redirected to Dropbox upload link.
 - Made phone number clickable with WhatsApp direct message link (wa.me/2349121478352).
 - Removed reCAPTCHA verification from contact form.
+- Added Microsoft UET tracking tag with consent mode management.
+- Configured for Lyte Hosting deployment with PM2 process management.
+- Added privacy policy link in contact form and adjusted form spacing.
+- Fixed form submission issue when file size exceeds 5MB limit.
 - Verified application functionality and UI layout.
 
 ## User Preferences
@@ -53,6 +57,18 @@ Preferred communication style: Simple, everyday language.
 - **Development**: Vite dev server with HMR, proxied through Express
 - **Production Build**: esbuild bundles server code, Vite builds client assets
 - **Output**: `dist/` directory with `index.cjs` (server) and `public/` (client assets)
+- **Process Management**: PM2 ecosystem config (`ecosystem.config.js`) for production
+
+### Deployment to Lyte Hosting
+1. **Build**: Run `npm run build` to compile frontend and backend
+2. **Environment**: Copy `.env.production.example` to `.env.production` and update with your values (DATABASE_URL, etc.)
+3. **Process Manager**: Use PM2 with `ecosystem.config.js`:
+   - Install PM2: `npm install -g pm2`
+   - Start app: `pm2 start ecosystem.config.js`
+   - View logs: `pm2 logs gaiusjimedits`
+   - Restart: `pm2 restart gaiusjimedits`
+4. **Reverse Proxy**: Configure nginx to proxy requests to port 5000 (Express server)
+5. **Database**: Ensure PostgreSQL is running and DATABASE_URL is correctly set
 
 ## External Dependencies
 
