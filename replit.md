@@ -14,10 +14,6 @@ This is a portfolio and service website for Gaius Jim, an independent academic c
 - Implemented smart file validation: users without files or files >5MB are redirected to Dropbox upload link.
 - Made phone number clickable with WhatsApp direct message link (wa.me/2349121478352).
 - Removed reCAPTCHA verification from contact form.
-- Added Microsoft UET tracking tag with consent mode management.
-- Configured for Lyte Hosting deployment with PM2 process management.
-- Added privacy policy link in contact form and adjusted form spacing.
-- Fixed form submission issue when file size exceeds 5MB limit.
 - Verified application functionality and UI layout.
 
 ## User Preferences
@@ -57,28 +53,6 @@ Preferred communication style: Simple, everyday language.
 - **Development**: Vite dev server with HMR, proxied through Express
 - **Production Build**: esbuild bundles server code, Vite builds client assets
 - **Output**: `dist/` directory with `index.cjs` (server) and `public/` (client assets)
-- **Process Management**: PM2 ecosystem config (`ecosystem.config.js`) for production
-
-### Deployment to cPanel
-1. **Build**: Run `npm run build` to compile frontend and backend
-2. **Push to Git**: Commit all changes to your repository
-3. **cPanel Setup**:
-   - Log into cPanel and go to Node.js Manager
-   - Create a new Node.js Application
-   - Set Application Root to: `/home/username/public_html/gaiusjimedits`
-   - Set Application Startup File to: `dist/index.cjs`
-   - Set Node.js Version: 20.x
-4. **Environment Variables** (add in cPanel Node.js Manager):
-   - `NODE_ENV`: production
-   - `PORT`: 3000 (cPanel manages port forwarding)
-   - `DATABASE_URL`: Your PostgreSQL connection string
-5. **Deploy**: The `.cpanel.yml` file will automatically handle:
-   - Installing dependencies (`npm install`)
-   - Building the app (`npm run build`)
-   - Deploying files to the correct location
-6. **Start**: Click "Start App" in cPanel's Node.js Manager
-
-See `public_html_config.md` for detailed step-by-step instructions.
 
 ## External Dependencies
 
