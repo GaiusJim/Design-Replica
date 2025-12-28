@@ -53,7 +53,7 @@ export function TermsOfService() {
 
             <section>
               <h2 className="text-xl font-bold text-primary mb-3">4. File Submission & Delivery Method</h2>
-              <p><strong>Submission of Files:</strong> Clients may submit documents through the Document Upload form on my website or by emailing me directly at gaiusjimedits@gmail.com.</p>
+              <p><strong>Submission of Files:</strong> Clients may submit documents through the Document Upload form on my website or by emailing me directly at gaiusjim@gaiusjimedits.com.</p>
               <p className="mt-2"><strong>Return of Edited Files:</strong> The method for returning edited documents (email or another mutually agreed method) will be decided between me and the client based on the needs of the project.</p>
             </section>
 
@@ -104,7 +104,7 @@ export function TermsOfService() {
             <section>
               <h2 className="text-xl font-bold text-primary mb-3">10. Communication and Contact</h2>
               <p>
-                All communication and project submissions occur via: <a href="mailto:gaiusjimedits@gmail.com" className="font-bold text-primary hover:underline">gaiusjimedits@gmail.com</a>
+                All communication and project submissions occur via: <a href="mailto:gaiusjim@gaiusjimedits.com" className="font-bold text-primary hover:underline">gaiusjim@gaiusjimedits.com</a>
               </p>
               <p className="mt-2">You may contact me at any time for questions, clarifications, or service requests.</p>
             </section>

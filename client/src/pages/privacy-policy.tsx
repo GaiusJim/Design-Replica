@@ -78,7 +78,7 @@ export function PrivacyPolicy() {
               <p>
                 If you have any questions or concerns regarding your data, please contact me directly:
                 <br />
-                Email: <a href="mailto:gaiusjimedits@gmail.com" className="font-bold text-primary hover:underline">gaiusjimedits@gmail.com</a>
+                Email: <a href="mailto:gaiusjim@gaiusjimedits.com" className="font-bold text-primary hover:underline">gaiusjim@gaiusjimedits.com</a>
               </p>
             </section>
           </div>
