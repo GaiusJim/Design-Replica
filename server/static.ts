@@ -10,14 +10,22 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // Serve static files with correct MIME types
+  // Serve static files with correct MIME types and aggressive caching
   app.use(express.static(distPath, {
     setHeaders: (res, filePath) => {
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       res.removeHeader('Content-Disposition');
+      
       if (filePath.endsWith('.html')) {
+        // HTML files: no caching (always check for updates)
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         res.setHeader('Content-Disposition', 'inline');
+      } else if (filePath.match(/\.[a-f0-9]{8}\.(js|css|woff2?|ttf|eot|svg|jpg|png|webp|gif)$/i)) {
+        // Assets with hashes: long-term caching (1 year)
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      } else {
+        // Other files: moderate caching (1 day)
+        res.setHeader('Cache-Control', 'public, max-age=86400');
       }
     },
   }));

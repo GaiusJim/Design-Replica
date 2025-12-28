@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import compression from "compression";
 
 const app = express();
 const httpServer = createServer(app);
@@ -11,6 +12,16 @@ declare module "http" {
     rawBody: unknown;
   }
 }
+
+app.use(compression({
+  filter: (req: express.Request, res: express.Response) => {
+    if (req.headers['x-no-compression']) {
+      return false;
+    }
+    return compression.filter(req, res);
+  },
+  level: 6,
+}));
 
 app.use(
   express.json({
