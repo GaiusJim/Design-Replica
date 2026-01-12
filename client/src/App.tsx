@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import { PrivacyPolicy } from "@/pages/privacy-policy";
 import { TermsOfService } from "@/pages/terms-of-service";
+import ScrollToTop from "@/components/scroll-to-top";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <ScrollToTop />
         <Toaster />
         <Router />
       </TooltipProvider>
