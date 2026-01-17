@@ -19,10 +19,33 @@ export function Sidebar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const NavLink = ({ item }: { item: typeof navItems[0] }) => {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      // For hash links, handle navigation manually to prevent page reloads on some mobile browsers
+      if (item.href.startsWith("/#")) {
+        e.preventDefault();
+        const id = item.href.replace("/#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          setIsMobileOpen(false);
+          // Small delay to allow the drawer to close before scrolling
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth" });
+            // Update URL hash without reload
+            window.history.pushState(null, "", item.href);
+          }, 100);
+        } else if (location !== "/") {
+          // If not on home page, navigate to home then scroll
+          window.location.href = item.href;
+        }
+      } else {
+        setIsMobileOpen(false);
+      }
+    };
+
     return (
       <a
         href={item.href}
-        onClick={() => setIsMobileOpen(false)}
+        onClick={handleClick}
         className={cn(
           "flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-colors",
           "hover:bg-primary/10 hover:text-primary",
