@@ -26,7 +26,7 @@ export function PrivacyPolicy() {
             <section>
               <h2 className="text-xl font-bold text-primary mb-3">2. Data Collection</h2>
               <p>
-                I collect your name, email address, and manuscript files solely for the purpose of providing my editing services to you. I do not collect unnecessary personal data, and I do not use cookies for third-party tracking.
+                I collect your name, email address, and manuscript files solely for the purpose of providing my editing services to you. I do not collect unnecessary personal data.
               </p>
             </section>
 
