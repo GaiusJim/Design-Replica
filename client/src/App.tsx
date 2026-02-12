@@ -33,6 +33,16 @@ function Router() {
 }
 
 function App() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://rating.wiserreview.com/rw/698caddfbfcb7f1728790e3b?type=floating_badge_socialmedia";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

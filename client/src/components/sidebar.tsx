@@ -21,6 +21,10 @@ export function Sidebar() {
 
   const NavLink = ({ item }: { item: typeof navItems[0] }) => {
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      // Haptic feedback
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(10);
+      }
       // For hash links, handle navigation manually to prevent page reloads on some mobile browsers
       if (item.href.startsWith("/#")) {
         e.preventDefault();

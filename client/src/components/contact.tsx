@@ -69,6 +69,10 @@ export function ContactForm() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // Haptic feedback
+    if (window.navigator && window.navigator.vibrate) {
+      window.navigator.vibrate(20);
+    }
     const fileInput = (e.currentTarget.elements.namedItem("document") as HTMLInputElement);
     const files = fileInput?.files;
 
