@@ -25,9 +25,9 @@ export function CookieBanner() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 lg:pl-72" // Added padding-left for sidebar offset on desktop
+          className="fixed bottom-4 sm:bottom-0 left-0 right-0 z-[100] p-4 lg:pl-72" // Increased z-index and added bottom margin on mobile to clear widgets
         >
-          <div className="container mx-auto max-w-4xl bg-primary text-primary-foreground p-4 rounded-lg shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="container mx-auto max-w-4xl bg-[#1A2B48] border border-white/10 text-primary-foreground p-4 rounded-lg shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-center sm:text-left">
               This website uses cookies to ensure you get the best experience.
             </p>
