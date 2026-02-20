@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Home, User, FileText, Upload, Instagram, Mail } from "lucide-react";
+import { Menu, X, Home, User, FileText, Upload, Instagram, Mail, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -10,6 +10,7 @@ const navItems = [
   { label: "Why Choose Me", href: "/#why-choose", icon: User },
   { label: "Sample Edit", href: "/#comparison", icon: FileText },
   { label: "Document Upload", href: "/#contact", icon: Upload },
+  { label: "FAQ", href: "/faq", icon: HelpCircle },
   { label: "Portfolio", href: "/#portfolio", icon: Instagram },
   { label: "Contact Info", href: "/#footer", icon: Mail },
 ];
