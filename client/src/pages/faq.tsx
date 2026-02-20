@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, MessageCircle, ArrowRight, ShieldCheck, CreditCard, Clock, CheckCircle2, HelpCircle } from "lucide-react";
+import { ChevronDown, MessageCircle, ArrowRight, ShieldCheck, CreditCard, Clock, CheckCircle2, HelpCircle, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -149,6 +149,10 @@ export default function FAQPage() {
     <div className="min-h-screen bg-background pt-24 pb-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
+          <Link href="/" className="inline-flex items-center text-primary hover:underline mb-6">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
           <div className="text-center mb-16">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -228,7 +232,10 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" variant="secondary" asChild>
-                <a href="#contact" onClick={() => window.location.href='/#contact'}>
+                <a href="/#contact" onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/#contact';
+                }}>
                   Get a Free Quote
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
