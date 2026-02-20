@@ -234,7 +234,11 @@ export default function FAQPage() {
               <Button size="lg" variant="secondary" asChild>
                 <a href="/#contact" onClick={(e) => {
                   e.preventDefault();
-                  window.location.href = '/#contact';
+                  if (window.location.pathname === '/') {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/#contact';
+                  }
                 }}>
                   Get a Free Quote
                   <ArrowRight className="ml-2 w-4 h-4" />

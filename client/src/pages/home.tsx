@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
 import { WhyChoose } from "@/components/features";
@@ -9,6 +11,17 @@ import { Sidebar } from "@/components/sidebar";
 import { CookieBanner } from "@/components/cookie-banner";
 
 export default function Home() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    if (window.location.hash === '#contact') {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground flex flex-col lg:flex-row overflow-x-hidden">
       <Sidebar />
