@@ -28,19 +28,20 @@ export function Sidebar() {
       if (item.href.startsWith("/#")) {
         e.preventDefault();
         const id = item.href.replace("/#", "");
-        const element = document.getElementById(id);
-        if (element) {
-          setIsMobileOpen(false);
-          // Small delay to allow the drawer to close before scrolling
-          setTimeout(() => {
+        
+        if (location === "/") {
+          const element = document.getElementById(id);
+          if (element) {
+            setIsMobileOpen(false);
             element.scrollIntoView({ behavior: "smooth" });
-            // Update URL hash without reload
             window.history.pushState(null, "", item.href);
-          }, 100);
-        } else if (location !== "/") {
-          // If not on home page, navigate to home then scroll
-          window.location.href = item.href;
+            return;
+          }
         }
+        
+        // If not on home page or element not found, navigate directly
+        setIsMobileOpen(false);
+        window.location.href = item.href;
       } else {
         setIsMobileOpen(false);
       }

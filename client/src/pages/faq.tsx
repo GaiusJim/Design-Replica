@@ -149,7 +149,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-background lg:pl-64">
       <Sidebar />
-      <div className="pt-24 pb-20">
+      <div className="pt-12 lg:pt-8 pb-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <Link href="/" className="inline-flex items-center text-primary hover:underline mb-6">
