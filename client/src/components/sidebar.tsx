@@ -10,7 +10,6 @@ const navItems = [
   { label: "Why Choose Me", href: "/#why-choose", icon: User },
   { label: "Sample Edit", href: "/#comparison", icon: FileText },
   { label: "Document Upload", href: "/#contact", icon: Upload },
-  { label: "FAQ", href: "/faq", icon: HelpCircle },
   { label: "Portfolio", href: "/#portfolio", icon: Instagram },
   { label: "Contact Info", href: "/#footer", icon: Mail },
 ];

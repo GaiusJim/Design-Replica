@@ -42,7 +42,7 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
         className="w-full py-4 flex items-center justify-between text-left hover:text-primary transition-colors gap-4"
         aria-expanded={isOpen}
       >
-        <span className="font-semibold text-foreground">{question}</span>
+        <span className="text-foreground">{question}</span>
         <ChevronDown className={`w-5 h-5 flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>
