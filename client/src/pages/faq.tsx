@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Sidebar } from "@/components/sidebar";
 
 const FAQ_DATA = [
   {
@@ -146,112 +147,115 @@ export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/" className="inline-flex items-center text-primary hover:underline mb-6">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Link>
-          <div className="text-center mb-16">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-bold text-primary mb-4"
-            >
-              Complete FAQ
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-lg text-muted-foreground"
-            >
-              Comprehensive answers to help you navigate your academic editing journey.
-            </motion.p>
-          </div>
-
-          <div className="space-y-12">
-            {FAQ_DATA.map((section, sIdx) => (
-              <motion.div 
-                key={section.category}
+    <div className="min-h-screen bg-background lg:pl-64">
+      <Sidebar />
+      <div className="pt-24 pb-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto">
+            <Link href="/" className="inline-flex items-center text-primary hover:underline mb-6">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Link>
+            <div className="text-center mb-16">
+              <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * sIdx }}
+                className="text-4xl md:text-5xl font-bold text-primary mb-4"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                    <section.icon className="w-6 h-6" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-foreground">{section.category}</h2>
-                </div>
-
-                <div className="grid gap-4">
-                  {section.items.map((item, iIdx) => {
-                    const id = `${sIdx}-${iIdx}`;
-                    const isOpen = openIndex === id;
-
-                    return (
-                      <Card 
-                        key={id}
-                        className={`overflow-hidden transition-all duration-200 border-primary/10 ${isOpen ? 'ring-1 ring-primary/20 bg-primary/5' : 'hover:bg-accent/50'}`}
-                      >
-                        <button
-                          onClick={() => setOpenIndex(isOpen ? null : id)}
-                          className="w-full p-5 flex items-center justify-between text-left gap-4"
-                        >
-                          <span className="font-semibold text-lg">{item.question}</span>
-                          <ChevronDown className={`w-5 h-5 flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-                        </button>
-                        <motion.div
-                          initial={false}
-                          animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="px-5 pb-5 text-muted-foreground leading-relaxed">
-                            {item.answer}
-                          </div>
-                        </motion.div>
-                      </Card>
-                    );
-                  })}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="mt-20 p-8 rounded-2xl bg-primary text-primary-foreground text-center"
-          >
-            <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
-            <p className="mb-8 opacity-90 max-w-xl mx-auto">
-              If you couldn't find the answer you were looking for, I'm here to help. Reach out directly for a personalized response.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" variant="secondary" asChild>
-                <a href="/#contact" onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname === '/') {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    window.location.href = '/#contact';
-                  }
-                }}>
-                  Get a Free Quote
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 border-white/20 hover:bg-white/20" asChild>
-                <button onClick={() => (window as any).tidioChatApi?.open()}>
-                  <MessageCircle className="mr-2 w-4 h-4" />
-                  Chat with Me
-                </button>
-              </Button>
+                Complete FAQ
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-lg text-muted-foreground"
+              >
+                Comprehensive answers to help you navigate your academic editing journey.
+              </motion.p>
             </div>
-          </motion.div>
+
+            <div className="space-y-12">
+              {FAQ_DATA.map((section, sIdx) => (
+                <motion.div 
+                  key={section.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * sIdx }}
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <section.icon className="w-6 h-6" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-foreground">{section.category}</h2>
+                  </div>
+
+                  <div className="grid gap-4">
+                    {section.items.map((item, iIdx) => {
+                      const id = `${sIdx}-${iIdx}`;
+                      const isOpen = openIndex === id;
+
+                      return (
+                        <Card 
+                          key={id}
+                          className={`overflow-hidden transition-all duration-200 border-primary/10 ${isOpen ? 'ring-1 ring-primary/20 bg-primary/5' : 'hover:bg-accent/50'}`}
+                        >
+                          <button
+                            onClick={() => setOpenIndex(isOpen ? null : id)}
+                            className="w-full p-5 flex items-center justify-between text-left gap-4"
+                          >
+                            <span className="text-lg">{item.question}</span>
+                            <ChevronDown className={`w-5 h-5 flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                          </button>
+                          <motion.div
+                            initial={false}
+                            animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-5 pb-5 text-muted-foreground leading-relaxed">
+                              {item.answer}
+                            </div>
+                          </motion.div>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="mt-20 p-8 rounded-2xl bg-primary text-primary-foreground text-center"
+            >
+              <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
+              <p className="mb-8 opacity-90 max-w-xl mx-auto">
+                If you couldn't find the answer you were looking for, I'm here to help. Reach out directly for a personalized response.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" variant="secondary" asChild>
+                  <a href="/#contact" onClick={(e) => {
+                    e.preventDefault();
+                    if (window.location.pathname === '/') {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#contact';
+                    }
+                  }}>
+                    Get a Free Quote
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="bg-white/10 border-white/20 hover:bg-white/20" asChild>
+                  <button onClick={() => (window as any).tidioChatApi?.open()}>
+                    <MessageCircle className="mr-2 w-4 h-4" />
+                    Chat with Me
+                  </button>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
