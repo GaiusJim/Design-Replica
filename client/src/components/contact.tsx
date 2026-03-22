@@ -152,7 +152,7 @@ export function ContactForm() {
 
             <input type="hidden" name="_captcha" value="false" />
 
-            <Button type="submit" variant="outline" className="w-full size-lg text-lg border-2 border-[#008060] text-[#008060] hover:bg-[#008060] hover:text-white active:bg-[#008060] active:text-white">
+            <Button type="submit" className="w-full size-lg text-lg border-2 border-[#008060] hover:bg-[#008060] hover:border-[#008060] active:bg-[#008060]">
               Get My Quote
             </Button>
 
