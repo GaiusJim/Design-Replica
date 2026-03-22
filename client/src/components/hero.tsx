@@ -3,7 +3,7 @@ import heroImage from "@assets/picture_1765954980181.png";
 
 export function Hero() {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden bg-secondary/30">
+    <section className="relative py-20 lg:py-32 overflow-hidden" style={{ backgroundColor: "#fffbf6" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <motion.div
